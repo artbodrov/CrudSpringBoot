@@ -51,9 +51,10 @@ public class StudentController {
         model.addAttribute("student", studentService.findOne(id));
         return "student/edit";
     }
+
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("student") @Valid Student student, BindingResult bindingResult,
-                         @PathVariable("id") int id){
+                         @PathVariable("id") int id) {
         if (bindingResult.hasErrors())
             return "student/edit";
 
@@ -61,7 +62,8 @@ public class StudentController {
         return "redirect:/student";
     }
 
-    public String delete(@PathVariable("id") int id){
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) {
         studentService.delete(id);
         return "redirect:/student";
     }
