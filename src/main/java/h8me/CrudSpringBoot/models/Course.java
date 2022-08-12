@@ -16,14 +16,14 @@ public class Course {
 
     @NotEmpty(message = "поле Курс не должно быть пустым")
     @Size(min = 2, max = 100, message = "поле Курс не должно быть не менее 2х символов и не более 100")
-    @Column(name = "corse")
-    private String corse;
+    @Column(name = "course")
+    private String course;
 
     public Course() {
 
     }
-    public Course(String corse) {
-        this.corse = corse;
+    public Course(String course) {
+        this.course = course;
     }
 
     public int getId() {
@@ -34,11 +34,11 @@ public class Course {
         this.id = id;
     }
 
-    public String getCorse() {
-        return corse;
+    public String getCourse() {
+        return course;
     }
 
-    public void setCorse(String corse) {
-        this.corse = corse;
+    public void setCourse(String corse) {
+        this.course = corse;
     }
 }

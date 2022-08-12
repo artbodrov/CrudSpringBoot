@@ -38,10 +38,10 @@ public class CourseController {
     public String create(@ModelAttribute("course") @Valid Course course,
                          BindingResult bindingResult) {
         if (bindingResult.hasErrors())
-            return "student/new";
+            return "course/new";
 
         courseServise.save(course);
-        return "redirect:/student";
+        return "redirect:/course";
     }
 
     @GetMapping("/{id}/edit")

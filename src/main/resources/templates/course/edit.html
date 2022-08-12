@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/course/{id}(id=${course.getId()})}" th:object="${course}">
+    <label for="course">Enter Course: </label>
+    <input type="text" th:field="*{course}" id="course"/>
+    <div style="color:red" th:if="${#fields.hasErrors('course')}" th:errors="*{course}">Course Error</div>
+    <br/>
+
+    <input type="submit" value="Update!"/>
+</form>
+</body>
+</html>
