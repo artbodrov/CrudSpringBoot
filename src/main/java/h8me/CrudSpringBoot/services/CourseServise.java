@@ -13,6 +13,7 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class CourseServise {
 
+
     private final CourseRepository courseRepository;
 
     @Autowired
@@ -45,4 +46,6 @@ public class CourseServise {
     public void delete(int id) {
         courseRepository.deleteById(id);
     }
+
+
 }

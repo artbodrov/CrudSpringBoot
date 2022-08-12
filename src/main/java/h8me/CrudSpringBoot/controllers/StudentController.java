@@ -22,6 +22,8 @@ public class StudentController {
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("student", studentService.findAll());
+
+
         return "student/index";
     }
 

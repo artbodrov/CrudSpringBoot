@@ -1,8 +1,8 @@
 package h8me.CrudSpringBoot.controllers;
 
 import h8me.CrudSpringBoot.models.Course;
-import h8me.CrudSpringBoot.models.Student;
 import h8me.CrudSpringBoot.services.CourseServise;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +16,7 @@ public class CourseController {
 
     private final CourseServise courseServise;
 
+
     public CourseController(CourseServise courseServise) {
         this.courseServise = courseServise;
     }
@@ -23,6 +24,7 @@ public class CourseController {
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("course", courseServise.findAll());
+
         return "course/index";
     }
 

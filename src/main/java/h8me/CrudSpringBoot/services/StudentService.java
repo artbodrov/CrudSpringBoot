@@ -23,6 +23,7 @@ public class StudentService {
     }
 
     public List<Student> findAll() {
+
         return studentRepository.findAll();
     }
 
@@ -47,4 +48,6 @@ public class StudentService {
     public void delete(int id) {
         studentRepository.deleteById(id);
     }
+
+
 }

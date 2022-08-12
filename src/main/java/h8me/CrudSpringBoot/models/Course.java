@@ -1,6 +1,5 @@
 package h8me.CrudSpringBoot.models;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -19,9 +18,11 @@ public class Course {
     @Column(name = "course")
     private String course;
 
-    public Course() {
+
+      public Course() {
 
     }
+
     public Course(String course) {
         this.course = course;
     }
@@ -38,7 +39,9 @@ public class Course {
         return course;
     }
 
-    public void setCourse(String corse) {
-        this.course = corse;
+    public void setCourse(String course) {
+        this.course = course;
     }
+
+
 }
