@@ -3,6 +3,7 @@ package h8me.CrudSpringBoot.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "Student")
@@ -22,6 +23,14 @@ public class Student {
     @Size(min = 2, max = 100, message = "Фамилия не должно быть не менее 2х символов и не более 100")
     @Column(name = "last_name")
     private String surname;
+
+    @ManyToMany
+    @JoinTable(
+            name ="Student_course",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "student_id")
+    )
+    private List<Lesson> courses;
 
     public Student() {
 
@@ -54,6 +63,14 @@ public class Student {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public List<Lesson> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Lesson> courses) {
+        this.courses = courses;
     }
 
     @Override

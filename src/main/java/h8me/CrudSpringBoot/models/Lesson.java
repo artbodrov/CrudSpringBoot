@@ -3,10 +3,11 @@ package h8me.CrudSpringBoot.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "Course")
-public class Course {
+public class Lesson {
 
     @Id
     @Column(name = "id")
@@ -16,15 +17,17 @@ public class Course {
     @NotEmpty(message = "поле Курс не должно быть пустым")
     @Size(min = 2, max = 100, message = "поле Курс не должно быть не менее 2х символов и не более 100")
     @Column(name = "course")
-    private String course;
+    private String lesson;
 
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students;
 
-      public Course() {
+    public Lesson() {
 
     }
 
-    public Course(String course) {
-        this.course = course;
+    public Lesson(String lesson) {
+        this.lesson = lesson;
     }
 
     public int getId() {
@@ -35,13 +38,19 @@ public class Course {
         this.id = id;
     }
 
-    public String getCourse() {
-        return course;
+    public String getLesson() {
+        return lesson;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void setLesson(String lesson) {
+        this.lesson = lesson;
     }
 
+    public List<Student> getStudents() {
+        return students;
+    }
 
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
 }

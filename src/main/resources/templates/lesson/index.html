@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:each="lesson : ${lesson}">
+    <a th:href="@{/lesson/{id}(id=${lesson.getId()})}"
+       th:text="${lesson.getLesson()}">lesson</a>
+
+</div>
+
+<br/>
+<hr/>
+
+<a href="/lesson/new">Create new Lesson</a>
+
+</body>
+</html>
