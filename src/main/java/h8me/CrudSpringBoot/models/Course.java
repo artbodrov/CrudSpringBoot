@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Course")
-public class Lesson {
+public class Course {
 
     @Id
     @Column(name = "id")
@@ -19,15 +19,21 @@ public class Lesson {
     @Column(name = "course")
     private String lesson;
 
+    @NotEmpty(message = "поле Преподаватель не должно быть пустым")
+    @Size(min = 2, max = 100, message = "поле Преподаватель не должно быть не менее 2х символов и не более 100")
+    @Column(name = "teacher")
+    private String teacher;
+
     @ManyToMany(mappedBy = "courses")
     private List<Student> students;
 
-    public Lesson() {
+    public Course() {
 
     }
 
-    public Lesson(String lesson) {
+    public Course(String lesson, String teacher) {
         this.lesson = lesson;
+        this.teacher = teacher;
     }
 
     public int getId() {
@@ -46,11 +52,23 @@ public class Lesson {
         this.lesson = lesson;
     }
 
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
     public List<Student> getStudents() {
         return students;
     }
 
     public void setStudents(List<Student> students) {
         this.students = students;
+    }
+
+    public static void main(String[] args) {
+
     }
 }

@@ -49,7 +49,4 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
- public void test(){
-     System.out.println("test");
- }
 }
